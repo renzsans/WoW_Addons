@@ -1,0 +1,7 @@
+## Interface: 11306
+## Title: BuffFrameBelowPlayerFrame
+## Notes: Moves the buff frame below player frame
+## Author: Renz Santos
+## Version: 1.0
+
+core.lua

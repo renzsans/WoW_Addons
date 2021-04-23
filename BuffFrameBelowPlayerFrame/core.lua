@@ -13,7 +13,7 @@ hooksecurefunc("BuffFrame_UpdateAllBuffAnchors", function()
 	DebuffButton1:SetPoint("BOTTOM", PlayerFrame, "BOTTOMRIGHT", -20, -120)
   elseif englishClass == "HUNTER" then
     BuffButton1:ClearAllPoints()
-    BuffButton1:SetPoint("TOPLEFT", PlayerFrame, "BOTTOMRIGHT", -35, -15)
+    BuffButton1:SetPoint("TOPLEFT", PlayerFrame, "BOTTOMRIGHT", -35, -20)
 	DebuffButton1:ClearAllPoints()
     DebuffButton1:SetPoint("BOTTOM", PlayerFrame, "BOTTOMRIGHT", -20, -125)
   else

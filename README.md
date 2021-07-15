@@ -7,8 +7,10 @@ Custom Addons for World of Warcraft TBC Classic
 
 ---
 
-## Gun Sounds
+## Sounds
 
-Copy paste gun sounds `Sound` folder to C:\Program Files (x86)\World of Warcraft\_classic_
+Copy paste `Sound` folder to C:\Program Files (x86)\World of Warcraft\_classic_
 
 Gun Sounds are from this [link](https://www.wowinterface.com/downloads/info25361-GunSilencerSuppressorClassic.html).
+
+Bow Sounds are from this [link](https://www.wowinterface.com/downloads/info23156-NewBowSound.html).

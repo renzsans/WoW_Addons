@@ -20,19 +20,12 @@ local playerClass, englishClass = UnitClass("player");
 
 -- Called when game loads to update the buff frame
 hooksecurefunc("BuffFrame_UpdateAllBuffAnchors", function()
-  BuffFrame:ClearAllPoints()
-  BuffFrame:SetPoint("TOPRIGHT", PlayerFrame, "BOTTOMRIGHT", -5, -20)
+  BuffFrame:ClearAllPoints()    
+  if englishClass == "HUNTER" then
+    BuffFrame:SetPoint("TOPRIGHT", PlayerFrame, "BOTTOMRIGHT", -5, -20)
+  else
+    BuffFrame:SetPoint("TOPRIGHT", PlayerFrame, "BOTTOMRIGHT", -5, 0)
+  end
   BuffFrame:SetScale(.85)
   BuffFrame:SetUserPlaced(true)
-  -- if englishClass == "HUNTER" then
-  --   BuffButton1:ClearAllPoints()
-  --   BuffButton1:SetPoint("TOPLEFT", PlayerFrame, "BOTTOMRIGHT", -35, -20)
-	--   DebuffButton1:ClearAllPoints()
-  --   DebuffButton1:SetPoint("BOTTOM", PlayerFrame, "BOTTOMRIGHT", -20, -145)
-  -- else
-  --   BuffButton1:ClearAllPoints()
-  --   BuffButton1:SetPoint("TOPLEFT", PlayerFrame, "BOTTOMRIGHT", -35, 10)
-	--   DebuffButton1:ClearAllPoints()
-	--   DebuffButton1:SetPoint("BOTTOM", PlayerFrame, "BOTTOMRIGHT", -20, -145)
-  -- end
 end)

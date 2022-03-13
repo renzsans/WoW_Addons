@@ -23,9 +23,41 @@ hooksecurefunc("BuffFrame_UpdateAllBuffAnchors", function()
   BuffFrame:ClearAllPoints()    
   if englishClass == "HUNTER" then
     BuffFrame:SetPoint("TOPRIGHT", PlayerFrame, "BOTTOMRIGHT", -5, -20)
+  elseif englishClass == "SHAMAN" then
+    BuffFrame:SetPoint("TOPRIGHT", PlayerFrame, "BOTTOMRIGHT", -5, -15)
   else
     BuffFrame:SetPoint("TOPRIGHT", PlayerFrame, "BOTTOMRIGHT", -5, 0)
   end
   BuffFrame:SetScale(.85)
   BuffFrame:SetUserPlaced(true)
 end)
+
+-- Called when game loads to update the GameToolTip
+-- hooksecurefunc("GameTooltip_SetDefaultAnchor", function()
+--   GameTooltip:ClearAllPoints()
+-- 	GameTooltip:SetPoint("BOTTOMRIGHT",TargetFrame,"BOTTOMRIGHT",0,0);
+-- end); 
+
+-- See thread
+-- https://www.wowinterface.com/forums/showthread.php?t=54564
+local function setTooltipToMouseLocation(self)
+	local scale = self:GetEffectiveScale()
+	local x, y = GetCursorPosition()
+	self:ClearAllPoints()
+	self:SetPoint("BOTTOMLEFT", UIParent, x / scale + 16, (y / scale - self:GetHeight() - 16))
+end
+
+hooksecurefunc("GameTooltip_SetDefaultAnchor", function(tooltip, parent)
+	if GetMouseFocus() ~= WorldFrame then return end
+	tooltip:SetOwner(parent, "ANCHOR_CURSOR")
+	setTooltipToMouseLocation(tooltip)
+	-- tooltip.default = 1
+end)
+
+-- See thread
+-- https://www.wowinterface.com/forums/showthread.php?t=17861
+local c = CastingBarFrame
+c:ClearAllPoints()
+-- c:SetWidth(250)
+c:SetPoint("BOTTOM", UIParent, 0, 200)
+c.SetPoint = function() end

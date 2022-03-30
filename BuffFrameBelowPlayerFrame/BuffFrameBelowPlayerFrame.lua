@@ -51,7 +51,7 @@ hooksecurefunc("GameTooltip_SetDefaultAnchor", function(tooltip, parent)
 	if GetMouseFocus() ~= WorldFrame then return end
 	tooltip:SetOwner(parent, "ANCHOR_CURSOR")
 	setTooltipToMouseLocation(tooltip)
-	-- tooltip.default = 1
+	tooltip.default = 1
 end)
 
 -- See thread

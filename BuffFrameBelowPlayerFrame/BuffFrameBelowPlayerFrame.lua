@@ -1,3 +1,12 @@
+-- Set the amount of buff in a row below player character
+-- BUFFS_PER_ROW = 7
+-- DEBUFFS_PER_ROW = 6 
+-- local startupFrame = CreateFrame("Frame")
+-- startupFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
+-- startupFrame:SetScript("OnEvent", function()
+--  C_Timer.After(0.3, function() BUFFS_PER_ROW = 7 end)
+-- end)
+
 -- Set Player Frame left of the player character
 PlayerFrame:ClearAllPoints()
 PlayerFrame:SetPoint("CENTER", -230, 10)
@@ -20,15 +29,16 @@ local playerClass, englishClass = UnitClass("player");
 
 -- Called when game loads to update the buff frame
 hooksecurefunc("BuffFrame_UpdateAllBuffAnchors", function()
-  BuffFrame:ClearAllPoints()    
+  BuffFrame:ClearAllPoints()
   if englishClass == "HUNTER" then
-    BuffFrame:SetPoint("TOPRIGHT", PlayerFrame, "BOTTOMRIGHT", -5, -20)
+    BuffFrame:SetPoint("TOPRIGHT", PlayerFrame, "BOTTOMRIGHT", -5, -30)
   elseif englishClass == "SHAMAN" then
     BuffFrame:SetPoint("TOPRIGHT", PlayerFrame, "BOTTOMRIGHT", -5, -15)
   else
     BuffFrame:SetPoint("TOPRIGHT", PlayerFrame, "BOTTOMRIGHT", -5, 0)
   end
   BuffFrame:SetScale(.85)
+  -- BUFFS_PER_ROW = 7
   BuffFrame:SetUserPlaced(true)
 end)
 
@@ -56,8 +66,16 @@ end)
 
 -- See thread
 -- https://www.wowinterface.com/forums/showthread.php?t=17861
-local c = CastingBarFrame
-c:ClearAllPoints()
+-- local c = CastingBarFrame
+-- c:ClearAllPoints()
 -- c:SetWidth(250)
-c:SetPoint("BOTTOM", UIParent, 0, 200)
-c.SetPoint = function() end
+-- c:SetPoint("BOTTOM", UIParent, 0, 250)
+-- c.SetPoint = function() end
+
+local function UFMover(self, event)
+
+	TargetFrameToT:ClearAllPoints();
+	TargetFrameToT:SetPoint("BOTTOMRIGHT",TargetFrame,"BOTTOMRIGHT",-13,-12);
+	TargetFrameToT:SetUserPlaced(true);
+
+end

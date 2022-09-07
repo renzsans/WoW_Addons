@@ -1,5 +1,5 @@
-## Interface: 20503
-## Version: 1.4
+## Interface: 30400
+## Version: v1.5
 ## Title: BuffFrameBelowPlayerFrame
 ## Notes: Moves the buff frame below player frame
 ## Author: Ensui
